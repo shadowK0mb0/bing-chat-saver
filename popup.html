@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 10px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: none;
+      background-color: #0078d4;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005a9e;
+    }
+
+    #status {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bing Chat Saver</h1>
+  <p>Save your Bing chat history to either a pdf or markdown file.</p>
+  <button id="pdf">Save as PDF</button>
+  <button id="md">Save as Markdown</button>
+  <p id="status"></p>
+  <script src="popup.js"></script>
+</body>
+</html>

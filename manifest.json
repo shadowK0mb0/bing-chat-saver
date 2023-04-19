@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Bing Chat Saver",
+  "version": "1.0",
+  "description": "A Microsoft Edge extension that allows users to save their Bing chat history to either a pdf or markdown file.",
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.bing.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "storage",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://www.bing.com/*"
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/16.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    },
+    "default_title": "Bing Chat Saver",
+    "default_popup": "popup.html"
+  }
+}
