@@ -13,7 +13,7 @@ pdfButton.addEventListener("click", () => {
         if (activeTabUrl.startsWith("https://www.bing.com/search?q=Bing+AI")) {
             // Send a message to the background script to save the chat as pdf
             chrome.runtime.sendMessage(
-                { action: "saveChat", fileName: "chat.pdf", fileType: "application/pdf" },
+                { action: "saveChat", fileName: "chat.pdf", fileType: "application/pdf", tabId: tabs[0].id},
                 (response) => {
                     // Show a success message to the user
                     status.textContent = "Chat saved as pdf!";
@@ -34,7 +34,7 @@ mdButton.addEventListener("click", () => {
         if (activeTabUrl.startsWith("https://www.bing.com/search?q=Bing+AI")) {
             // Send a message to the background script to save the chat as markdown
             chrome.runtime.sendMessage(
-                { action: "saveChat", fileName: "chat.md", fileType: "text/markdown" },
+                { action: "saveChat", fileName: "chat.md", fileType: "text/markdown", tabId: tabs[0].id},
                 (response) => {
                     // Show a success message to the user
                     status.textContent = "Chat saved as markdown!";

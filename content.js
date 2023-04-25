@@ -1,14 +1,15 @@
 // Listen for messages from the background script
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  console.log(message);
   // Check if the message is a request to get the chat history
   if (message.action === "getChat") {
     // Get the chat container element from the page
-    let chatContainer = document.getElementById("cib-chat-main");
+    var cib_serp = document.querySelector("#b_sydConvCont > cib-serp").shadowRoot;
+    var cib_chat_main = cib_serp.querySelector("#cib-conversation-main").shadowRoot.querySelector("#cib-chat-main");
     // Check if the chat container exists
-    if (chatContainer) {
-      // Get the chat messages as an array of elements
-      let chatMessages = chatContainer.querySelectorAll("cib-chat-turn");
-      console.log(chatMessages)
+    if (cib_chat_main) {
+      var chatMessages = cib_chat_main.querySelectorAll("cib-chat-turn");
+      console.log(chatMessages);
       // Check if there are any chat messages
       if (chatMessages.length > 0) {
         // Initialize an empty string for the chat history

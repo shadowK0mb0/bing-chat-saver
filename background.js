@@ -3,7 +3,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   // Check if the message is a request to save the chat history
   if (message.action === "saveChat") {
       // Send a message to the content script to get the chat history
-      chrome.tabs.sendMessage({ action: "getChat" }, (response) => {
+      chrome.tabs.sendMessage(message.tabId, { action: "getChat" }, undefined, (response) => {
         // Check if the response is valid
         if (response && response.chat) {
           // Get the chat history as a string
